@@ -357,7 +357,7 @@
         "kind": 6,
         "importPath": "ecommerce.demo.management.commands.load-fixtures",
         "description": "ecommerce.demo.management.commands.load-fixtures",
-        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")\n        call_command(\"loaddata\", \"db_product_inventory_fixture.json\")",
+        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")\n        call_command(\"loaddata\", \"db_product_inventory_fixture.json\")\n        call_command(\"loaddata\", \"db_media_fixture.json\")\n        call_command(\"loaddata\", \"db_stock_fixture.json\")",
         "detail": "ecommerce.demo.management.commands.load-fixtures",
         "documentation": {}
     },
@@ -465,7 +465,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"\ndef test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        brand_factory.create(name=\"not_unique\")",
+        "peekOfCode": "def test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"\ndef test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        brand_factory.create(name=\"not_unique\")\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, product_inventory, image, alt_text, is_feature, created_at, updated_at\",",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -474,7 +474,97 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        brand_factory.create(name=\"not_unique\")",
+        "peekOfCode": "def test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        brand_factory.create(name=\"not_unique\")\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, product_inventory, image, alt_text, is_feature, created_at, updated_at\",\n    [\n        (\n            1,",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_media_dataset",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_media_dataset(\n    db,\n    db_fixture_setup,\n    id,\n    product_inventory,\n    image,\n    alt_text,\n    is_feature,\n    created_at,\n    updated_at,",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_media_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_media_insert_data(db, media_factory):\n    new_media = media_factory.create(product_inventory__sku=\"123456789\")\n    assert new_media.product_inventory.sku == \"123456789\"\n    assert new_media.image == \"images/default.png\"\n    assert new_media.alt_text == \"a default image solid color\"\n    assert new_media.is_feature == 1\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, product_inventory, last_checked, units, units_sold\",\n    [",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_stock_dataset",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_stock_dataset(\n    db,\n    db_fixture_setup,\n    id,\n    product_inventory,\n    last_checked,\n    units,\n    units_sold,\n):\n    result = models.Stock.objects.get(id=id)",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_stock_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_stock_insert_data(db, stock_factory):\n    new_stock = stock_factory.create(product_inventory__sku=\"123456789\")\n    assert new_stock.product_inventory.sku == \"123456789\"\n    assert new_stock.units == 2\n    assert new_stock.units_sold == 100\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, name, description\",\n    [\n        (1, \"men-shoe-size\", \"men shoe size\"),",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_attribute_dataset",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_attribute_dataset(\n    db, db_fixture_setup, id, name, description\n):\n    result = models.ProductAttribute.objects.get(id=id)\n    assert result.name == name\n    assert result.description == description\ndef test_inventory_db_product_attrubite_insert_data(\n    db, product_attribute_factory\n):\n    new_attribute = product_attribute_factory.create()",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_attrubite_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_attrubite_insert_data(\n    db, product_attribute_factory\n):\n    new_attribute = product_attribute_factory.create()\n    assert new_attribute.name == \"attribute_name_0\"\n    assert new_attribute.description == \"description_0\"\ndef test_inventory_db_product_attrubite_uniqueness_integrity(\n    db, product_attribute_factory\n):\n    product_attribute_factory.create(name=\"not_unique\")",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_attrubite_uniqueness_integrity",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_attrubite_uniqueness_integrity(\n    db, product_attribute_factory\n):\n    product_attribute_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_attribute_factory.create(name=\"not_unique\")\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, product_attribute, attribute_value\",\n    [",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_attribute_dataset",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_attribute_dataset(\n    db, db_fixture_setup, id, product_attribute, attribute_value\n):\n    result = models.ProductAttributeValue.objects.get(id=1)\n    assert result.product_attribute.id == 1\n    assert result.attribute_value == \"10\"\ndef test_inventory_db_product_attribute_value_data(\n    db, product_attribute_value_factory\n):\n    new_attribute_value = product_attribute_value_factory.create(",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_attribute_value_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_attribute_value_data(\n    db, product_attribute_value_factory\n):\n    new_attribute_value = product_attribute_value_factory.create(\n        attribute_value=\"new_value\", product_attribute__name=\"new_value\"\n    )\n    assert new_attribute_value.attribute_value == \"new_value\"\n    assert new_attribute_value.product_attribute.name == \"new_value\"\ndef test_inventory_db_insert_inventory_product_values(\n    db, product_with_attribute_values_factory",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_insert_inventory_product_values",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_insert_inventory_product_values(\n    db, product_with_attribute_values_factory\n):\n    new_inv_attribute = product_with_attribute_values_factory(sku=\"123456789\")\n    result = models.ProductInventory.objects.get(sku=\"123456789\")\n    count = result.attribute_values.all().count()\n    assert count == 2",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
