@@ -97,6 +97,14 @@
         "documentation": {}
     },
     {
+        "label": "IntegrityError",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -357,7 +365,7 @@
         "kind": 6,
         "importPath": "ecommerce.demo.management.commands.load-fixtures",
         "description": "ecommerce.demo.management.commands.load-fixtures",
-        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")",
+        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")",
         "detail": "ecommerce.demo.management.commands.load-fixtures",
         "documentation": {}
     },
@@ -375,7 +383,7 @@
         "kind": 6,
         "importPath": "ecommerce.inventory.migrations.0001_initial",
         "description": "ecommerce.inventory.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Category',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(help_text='format: required, max-100', max_length=100, verbose_name='category name')),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Brand',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(help_text='format: required, unique, max-255', max_length=255, unique=True, verbose_name='brand name')),",
         "detail": "ecommerce.inventory.migrations.0001_initial",
         "documentation": {}
     },
@@ -384,7 +392,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_category_dbfixture(db, db_fixture_setup, id, name, slug, is_active):\n    result = models.Category.objects.get(id=id)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.parametrize(\n    \"name, slug, is_active\",\n    [\n        (\"fashion\", \"fashion\", 1),\n        (\"trainers\", \"trainers\", 1),",
+        "peekOfCode": "def test_inventory_category_dbfixture(\n    db, db_fixture_setup, id, name, slug, is_active\n):\n    result = models.Category.objects.get(id=id)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.parametrize(\n    \"name, slug, is_active\",\n    [",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -393,7 +401,34 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_category_insert_data(db, category_factory, name, slug, is_active):\n    result = category_factory.create(name=name, slug=slug, is_active=is_active)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active",
+        "peekOfCode": "def test_inventory_category_insert_data(\n    db, category_factory, name, slug, is_active\n):\n    result = category_factory.create(name=name, slug=slug, is_active=is_active)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, web_id, name, slug, description, is_active, created_at, updated_at\",",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_dbfixture",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_dbfixture(\n    db,\n    django_db_setup,\n    id,\n    web_id,\n    name,\n    slug,\n    description,\n    is_active,\n    created_at,",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_uniqueness_integrity",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_uniqueness_integrity(db, product_factory):\n    new_web_id = product_factory.create(web_id=123456789)\n    with pytest.raises(IntegrityError):\n        product_factory.create(web_id=123456789)\n@pytest.mark.dbfixture\ndef test_inventory_db_product_insert_data(\n    db, product_factory, category_factory\n):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_insert_data(\n    db, product_factory, category_factory\n):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()\n    assert \"web_id_\" in new_product.web_id\n    assert result_product_category == 5",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -416,11 +451,101 @@
         "documentation": {}
     },
     {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class Product(models.Model):\n    \"\"\"\n    Product details table\n    \"\"\"\n    web_id = models.CharField(\n        max_length=50,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"product website ID\"),",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductType",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductType(models.Model):\n    \"\"\"\n    Product type table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"type of product\"),",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Brand",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class Brand(models.Model):\n    \"\"\"\n    Product brand table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"brand name\"),",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttribute",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductAttribute(models.Model):\n    \"\"\"\n    Product attribute table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"product attribute name\"),",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeValue",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductAttributeValue(models.Model):\n    \"\"\"\n    Product attribute value table\n    \"\"\"\n    product_attribute = models.ForeignKey(\n        ProductAttribute,\n        related_name=\"product_attribute\",\n        on_delete=models.PROTECT,\n    )\n    attribute_value = models.CharField(",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventory",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductInventory(models.Model):\n    \"\"\"\n    Product inventory table\n    \"\"\"\n    sku = models.CharField(\n        max_length=20,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"stock keeping unit\"),",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Media",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class Media(models.Model):\n    \"\"\"\n    The product image table.\n    \"\"\"\n    product_inventory = models.ForeignKey(\n        ProductInventory,\n        on_delete=models.PROTECT,\n        related_name=\"media_product_inventory\",\n    )\n    image = models.ImageField(",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Stock",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class Stock(models.Model):\n    product_inventory = models.OneToOneField(\n        ProductInventory,\n        related_name=\"product_inventory\",\n        on_delete=models.PROTECT,\n    )\n    last_checked = models.DateTimeField(\n        unique=False,\n        null=True,\n        blank=True,",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeValues",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductAttributeValues(models.Model):\n    \"\"\"\n    Product attribute values link table\n    \"\"\"\n    attributevalues = models.ForeignKey(\n        \"ProductAttributeValue\",\n        related_name=\"attributevaluess\",\n        on_delete=models.PROTECT,\n    )\n    productinventory = models.ForeignKey(",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
         "label": "CategoryFactory",
         "kind": 6,
         "importPath": "ecommerce.tests.factories",
         "description": "ecommerce.tests.factories",
-        "peekOfCode": "class CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nregister(CategoryFactory)",
+        "peekOfCode": "class CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nclass ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product\n    web_id = factory.Sequence(lambda n: \"web_id_%d\" % n)\n    slug = fake.lexify(text=\"prod_slug_??????\")",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "ProductFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product\n    web_id = factory.Sequence(lambda n: \"web_id_%d\" % n)\n    slug = fake.lexify(text=\"prod_slug_??????\")\n    name = fake.lexify(text=\"prod_name_??????\")\n    description = fake.text()\n    is_active = True\n    created_at = \"2021-09-04 22:14:18.279092\"\n    updated_at = \"2021-09-04 22:14:18.279092\"",
         "detail": "ecommerce.tests.factories",
         "documentation": {}
     },
@@ -429,7 +554,7 @@
         "kind": 5,
         "importPath": "ecommerce.tests.factories",
         "description": "ecommerce.tests.factories",
-        "peekOfCode": "fake = Faker()\nfrom ecommerce.inventory import models\nclass CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nregister(CategoryFactory)",
+        "peekOfCode": "fake = Faker()\nfrom ecommerce.inventory import models\nclass CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nclass ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product",
         "detail": "ecommerce.tests.factories",
         "documentation": {}
     },
@@ -447,7 +572,7 @@
         "kind": 2,
         "importPath": "ecommerce.tests.fixtures",
         "description": "ecommerce.tests.fixtures",
-        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")",
+        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")",
         "detail": "ecommerce.tests.fixtures",
         "documentation": {}
     },
@@ -573,7 +698,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "LANGUAGE_CODE = \"en-us\"\nTIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field",
+        "peekOfCode": "LANGUAGE_CODE = \"en-us\"\nTIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -582,7 +707,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "TIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "TIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -591,7 +716,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -600,16 +725,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
-        "detail": "ecommerce.settings",
-        "documentation": {}
-    },
-    {
-        "label": "USE_TZ",
-        "kind": 5,
-        "importPath": "ecommerce.settings",
-        "description": "ecommerce.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "USE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
