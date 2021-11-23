@@ -65,6 +65,14 @@
         "documentation": {}
     },
     {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -110,6 +118,30 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "call_command",
+        "importPath": "django.core.management",
+        "description": "django.core.management",
+        "isExtraImport": true,
+        "detail": "django.core.management",
+        "documentation": {}
+    },
+    {
+        "label": "call_command",
+        "importPath": "django.core.management",
+        "description": "django.core.management",
+        "isExtraImport": true,
+        "detail": "django.core.management",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
         "documentation": {}
     },
     {
@@ -220,14 +252,6 @@
         "documentation": {}
     },
     {
-        "label": "call_command",
-        "importPath": "django.core.management",
-        "description": "django.core.management",
-        "isExtraImport": true,
-        "detail": "django.core.management",
-        "documentation": {}
-    },
-    {
         "label": "webdriver",
         "importPath": "selenium",
         "description": "selenium",
@@ -329,6 +353,24 @@
         "documentation": {}
     },
     {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "ecommerce.demo.management.commands.load-fixtures",
+        "description": "ecommerce.demo.management.commands.load-fixtures",
+        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")",
+        "detail": "ecommerce.demo.management.commands.load-fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "DemoConfig",
+        "kind": 6,
+        "importPath": "ecommerce.demo.apps",
+        "description": "ecommerce.demo.apps",
+        "peekOfCode": "class DemoConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"ecommerce.demo\"",
+        "detail": "ecommerce.demo.apps",
+        "documentation": {}
+    },
+    {
         "label": "Migration",
         "kind": 6,
         "importPath": "ecommerce.inventory.migrations.0001_initial",
@@ -378,7 +420,7 @@
         "kind": 6,
         "importPath": "ecommerce.tests.factories",
         "description": "ecommerce.tests.factories",
-        "peekOfCode": "class CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = fake.lexify(text=\"cat_name_????\")\n    slug = fake.lexify(text=\"cat_slug_????\")\nregister(CategoryFactory)",
+        "peekOfCode": "class CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nregister(CategoryFactory)",
         "detail": "ecommerce.tests.factories",
         "documentation": {}
     },
@@ -387,7 +429,7 @@
         "kind": 5,
         "importPath": "ecommerce.tests.factories",
         "description": "ecommerce.tests.factories",
-        "peekOfCode": "fake = Faker()\nfrom ecommerce.inventory import models\nclass CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = fake.lexify(text=\"cat_name_????\")\n    slug = fake.lexify(text=\"cat_slug_????\")\nregister(CategoryFactory)",
+        "peekOfCode": "fake = Faker()\nfrom ecommerce.inventory import models\nclass CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nregister(CategoryFactory)",
         "detail": "ecommerce.tests.factories",
         "documentation": {}
     },
