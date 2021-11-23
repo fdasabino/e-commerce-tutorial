@@ -1,4 +1,5 @@
-[{
+[
+  {
     "model": "inventory.category",
     "pk": 1,
     "fields": {
@@ -488,4 +489,5 @@
       "level": 3
     }
   }
-]
+  ]
+  

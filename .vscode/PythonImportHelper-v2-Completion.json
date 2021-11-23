@@ -227,14 +227,6 @@
         "documentation": {}
     },
     {
-        "label": "Text",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "factory",
         "kind": 6,
         "isExtraImport": true,
@@ -365,7 +357,7 @@
         "kind": 6,
         "importPath": "ecommerce.demo.management.commands.load-fixtures",
         "description": "ecommerce.demo.management.commands.load-fixtures",
-        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")",
+        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")\n        call_command(\"loaddata\", \"db_product_inventory_fixture.json\")",
         "detail": "ecommerce.demo.management.commands.load-fixtures",
         "documentation": {}
     },
@@ -428,7 +420,61 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_insert_data(\n    db, product_factory, category_factory\n):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()\n    assert \"web_id_\" in new_product.web_id\n    assert result_product_category == 5",
+        "peekOfCode": "def test_inventory_db_product_insert_data(\n    db, product_factory, category_factory\n):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()\n    assert \"web_id_\" in new_product.web_id\n    assert result_product_category == 5\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, sku, upc, product_type, product, brand, is_active, retail_price, store_price, sale_price, weight, created_at, updated_at\",",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_inventory_dataset",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_inventory_dataset(\n    db,\n    db_fixture_setup,\n    id,\n    sku,\n    upc,\n    product_type,\n    product,\n    brand,\n    is_active,",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_product_inventory_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_product_inventory_insert_data(\n    db, product_inventory_factory\n):\n    new_product = product_inventory_factory.create(\n        sku=\"123456789\",\n        upc=\"123456789\",\n        product_type__name=\"new_name\",\n        product__web_id=\"123456789\",\n        brand__name=\"new_name\",\n    )",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_producttype_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_producttype_insert_data(db, product_type_factory):\n    new_type = product_type_factory.create(name=\"demo_type\")\n    assert new_type.name == \"demo_type\"\ndef test_inventory_db_producttype_uniqueness_integrity(\n    db, product_type_factory\n):\n    product_type_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_type_factory.create(name=\"not_unique\")\ndef test_inventory_db_brand_insert_data(db, brand_factory):",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_producttype_uniqueness_integrity",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_producttype_uniqueness_integrity(\n    db, product_type_factory\n):\n    product_type_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_type_factory.create(name=\"not_unique\")\ndef test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"\ndef test_inventory_db_brand_uniqueness_integrity(db, brand_factory):",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_brand_insert_data",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"\ndef test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        brand_factory.create(name=\"not_unique\")",
+        "detail": "ecommerce.inventory.tests.test_db_fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "test_inventory_db_brand_uniqueness_integrity",
+        "kind": 2,
+        "importPath": "ecommerce.inventory.tests.test_db_fixtures",
+        "description": "ecommerce.inventory.tests.test_db_fixtures",
+        "peekOfCode": "def test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        brand_factory.create(name=\"not_unique\")",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -536,7 +582,7 @@
         "kind": 6,
         "importPath": "ecommerce.tests.factories",
         "description": "ecommerce.tests.factories",
-        "peekOfCode": "class CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nclass ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product\n    web_id = factory.Sequence(lambda n: \"web_id_%d\" % n)\n    slug = fake.lexify(text=\"prod_slug_??????\")",
+        "peekOfCode": "class CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_??????\")\nclass ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product\n    web_id = factory.Sequence(lambda n: \"web_id_%d\" % n)\n    slug = fake.lexify(text=\"prod_slug_??????\")",
         "detail": "ecommerce.tests.factories",
         "documentation": {}
     },
@@ -550,11 +596,92 @@
         "documentation": {}
     },
     {
+        "label": "ProductTypeFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductTypeFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductType\n    name = factory.Sequence(lambda n: \"type_%d\" % n)\nclass BrandFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Brand\n    name = factory.Sequence(lambda n: \"brand_%d\" % n)\nclass ProductInventoryFactory(factory.django.DjangoModelFactory):\n    class Meta:",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "BrandFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class BrandFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Brand\n    name = factory.Sequence(lambda n: \"brand_%d\" % n)\nclass ProductInventoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductInventory\n    sku = factory.Sequence(lambda n: \"sku_%d\" % n)\n    upc = factory.Sequence(lambda n: \"upc_%d\" % n)\n    product_type = factory.SubFactory(ProductTypeFactory)",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventoryFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductInventoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductInventory\n    sku = factory.Sequence(lambda n: \"sku_%d\" % n)\n    upc = factory.Sequence(lambda n: \"upc_%d\" % n)\n    product_type = factory.SubFactory(ProductTypeFactory)\n    product = factory.SubFactory(ProductFactory)\n    brand = factory.SubFactory(BrandFactory)\n    is_active = 1\n    retail_price = 97",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "MediaFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class MediaFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Media\n    product_inventory = factory.SubFactory(ProductInventoryFactory)\n    image = \"images/default.png\"\n    alt_text = \"a default image solid color\"\n    is_feature = True\nclass StockFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Stock",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "StockFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class StockFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Stock\n    product_inventory = factory.SubFactory(ProductInventoryFactory)\n    units = 2\n    units_sold = 100\nclass ProductAttributeFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductAttribute\n    name = factory.Sequence(lambda n: \"attribute_name_%d\" % n)",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductAttributeFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductAttribute\n    name = factory.Sequence(lambda n: \"attribute_name_%d\" % n)\n    description = factory.Sequence(lambda n: \"description_%d\" % n)\nclass ProductAttributeValueFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductAttributeValue\n    product_attribute = factory.SubFactory(ProductAttributeFactory)\n    attribute_value = fake.lexify(text=\"attribute_value_??????\")",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeValueFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductAttributeValueFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductAttributeValue\n    product_attribute = factory.SubFactory(ProductAttributeFactory)\n    attribute_value = fake.lexify(text=\"attribute_value_??????\")\nclass ProductAttributeValuesFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductAttributeValues\n    attributevalues = factory.SubFactory(ProductAttributeValueFactory)\n    productinventory = factory.SubFactory(ProductInventoryFactory)",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeValuesFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductAttributeValuesFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.ProductAttributeValues\n    attributevalues = factory.SubFactory(ProductAttributeValueFactory)\n    productinventory = factory.SubFactory(ProductInventoryFactory)\nclass ProductWithAttributeValuesFactory(ProductInventoryFactory):\n    attributevalues1 = factory.RelatedFactory(\n        ProductAttributeValuesFactory,\n        factory_related_name=\"productinventory\",\n    )",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
+        "label": "ProductWithAttributeValuesFactory",
+        "kind": 6,
+        "importPath": "ecommerce.tests.factories",
+        "description": "ecommerce.tests.factories",
+        "peekOfCode": "class ProductWithAttributeValuesFactory(ProductInventoryFactory):\n    attributevalues1 = factory.RelatedFactory(\n        ProductAttributeValuesFactory,\n        factory_related_name=\"productinventory\",\n    )\n    attributevalues2 = factory.RelatedFactory(\n        ProductAttributeValuesFactory,\n        factory_related_name=\"productinventory\",\n    )\nregister(CategoryFactory)",
+        "detail": "ecommerce.tests.factories",
+        "documentation": {}
+    },
+    {
         "label": "fake",
         "kind": 5,
         "importPath": "ecommerce.tests.factories",
         "description": "ecommerce.tests.factories",
-        "peekOfCode": "fake = Faker()\nfrom ecommerce.inventory import models\nclass CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_????\")\nclass ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product",
+        "peekOfCode": "fake = Faker()\nfrom ecommerce.inventory import models\nclass CategoryFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Category\n    name = factory.Sequence(lambda n: \"cat_slug_%d\" % n)\n    slug = fake.lexify(text=\"cat_slug_??????\")\nclass ProductFactory(factory.django.DjangoModelFactory):\n    class Meta:\n        model = models.Product",
         "detail": "ecommerce.tests.factories",
         "documentation": {}
     },
@@ -572,7 +699,7 @@
         "kind": 2,
         "importPath": "ecommerce.tests.fixtures",
         "description": "ecommerce.tests.fixtures",
-        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")",
+        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")",
         "detail": "ecommerce.tests.fixtures",
         "documentation": {}
     },
