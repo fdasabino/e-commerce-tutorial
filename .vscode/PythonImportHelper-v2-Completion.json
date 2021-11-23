@@ -65,6 +65,14 @@
         "documentation": {}
     },
     {
+        "label": "call_command",
+        "importPath": "django.core.management",
+        "description": "django.core.management",
+        "isExtraImport": true,
+        "detail": "django.core.management",
+        "documentation": {}
+    },
+    {
         "label": "webdriver",
         "importPath": "selenium",
         "description": "selenium",
@@ -150,10 +158,10 @@
     {
         "label": "test_dashboard_admin_login",
         "kind": 2,
-        "importPath": "ecommerce.dashboard.test.test_selenium_dashboard",
-        "description": "ecommerce.dashboard.test.test_selenium_dashboard",
+        "importPath": "ecommerce.dashboard.tests.test_selenium_dashboard",
+        "description": "ecommerce.dashboard.tests.test_selenium_dashboard",
         "peekOfCode": "def test_dashboard_admin_login(live_server, db_fixture_setup, chrome_browser_instance):\n    browser = chrome_browser_instance\n    browser.get((\"%s%s\" % (live_server.url, \"/admin/login/\")))\n    user_name = browser.find_element(By.NAME, \"username\")\n    user_password = browser.find_element(By.NAME, \"password\")\n    submit = browser.find_element(By.XPATH, '//input[@value=\"Log in\"]')\n    user_name.send_keys(\"admin\")\n    user_password.send_keys(\"password\")\n    submit.send_keys(Keys.RETURN)\n    assert \"Site administration\" in browser.page_source",
-        "detail": "ecommerce.dashboard.test.test_selenium_dashboard",
+        "detail": "ecommerce.dashboard.tests.test_selenium_dashboard",
         "documentation": {}
     },
     {
@@ -161,8 +169,26 @@
         "kind": 6,
         "importPath": "ecommerce.dashboard.apps",
         "description": "ecommerce.dashboard.apps",
-        "peekOfCode": "class DashboardConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'dashboard'",
+        "peekOfCode": "class DashboardConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"ecommerce.dashboard\"",
         "detail": "ecommerce.dashboard.apps",
+        "documentation": {}
+    },
+    {
+        "label": "create_admin_user",
+        "kind": 2,
+        "importPath": "ecommerce.tests.fixtures",
+        "description": "ecommerce.tests.fixtures",
+        "peekOfCode": "def create_admin_user(django_user_model):\n    \"\"\"\n    Return admin user for tests\n    \"\"\"\n    return django_user_model.objects.create_superuser(\"admin\", \"a@a.com\", \"password\")\n@pytest.fixture(scope=\"session\")\ndef db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"",
+        "detail": "ecommerce.tests.fixtures",
+        "documentation": {}
+    },
+    {
+        "label": "db_fixture_setup",
+        "kind": 2,
+        "importPath": "ecommerce.tests.fixtures",
+        "description": "ecommerce.tests.fixtures",
+        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")",
+        "detail": "ecommerce.tests.fixtures",
         "documentation": {}
     },
     {
@@ -188,7 +214,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-_83&(d$0ypq!^%5$=bys*@(k9j-x2f4&x0m@$ab3w2+#&27mss'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-_83&(d$0ypq!^%5$=bys*@(k9j-x2f4&x0m@$ab3w2+#&27mss\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -197,7 +223,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-_83&(d$0ypq!^%5$=bys*@(k9j-x2f4&x0m@$ab3w2+#&27mss'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-_83&(d$0ypq!^%5$=bys*@(k9j-x2f4&x0m@$ab3w2+#&27mss\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -206,7 +232,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -215,7 +241,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n]",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # local applications",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -224,7 +250,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n]\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # local applications\n    \"ecommerce.dashboard\",\n]",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -233,7 +259,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'ecommerce.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"ecommerce.urls\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -242,7 +268,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "ROOT_URLCONF = 'ecommerce.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "ROOT_URLCONF = \"ecommerce.urls\"\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.debug\",\n                \"django.template.context_processors.request\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -251,7 +277,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.debug\",\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -260,7 +286,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'ecommerce.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = \"ecommerce.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n# Password validation",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -269,7 +295,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -278,7 +304,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -287,7 +313,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field",
+        "peekOfCode": "LANGUAGE_CODE = \"en-us\"\nTIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -296,7 +322,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "TIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -305,7 +331,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -314,7 +340,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -323,7 +349,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -332,7 +358,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -341,7 +367,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -350,7 +376,7 @@
         "kind": 5,
         "importPath": "ecommerce.urls",
         "description": "ecommerce.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n]",
         "detail": "ecommerce.urls",
         "documentation": {}
     },
@@ -368,7 +394,7 @@
         "kind": 5,
         "importPath": "conftest",
         "description": "conftest",
-        "peekOfCode": "pytest_plugins = [\n    # \"ecommerce.tests.fixtures\",\n    \"ecommerce.tests.selenium\",\n    # \"ecommerce.tests.factories\",\n]",
+        "peekOfCode": "pytest_plugins = [\n    \"ecommerce.tests.fixtures\",\n    \"ecommerce.tests.selenium\",\n]",
         "detail": "conftest",
         "documentation": {}
     },

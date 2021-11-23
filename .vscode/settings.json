@@ -1,5 +1,16 @@
 {
-  "cSpell.words": [
-    "ecommerce"
-  ]
+  "editor.formatOnSave": true,
+  "python.pythonPath": "c:\\venv\\Scripts\\python.exe",
+  "python.sortImports.args": [
+    "--profile=black",
+  ],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length=79"
+  ],
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  }
 }
