@@ -1,5 +1,86 @@
 [
     {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "Keys",
+        "importPath": "selenium.webdriver.common.keys",
+        "description": "selenium.webdriver.common.keys",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.keys",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.chrome.options",
+        "description": "selenium.webdriver.chrome.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.chrome.options",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -22,14 +103,6 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
         "documentation": {}
     },
     {
@@ -72,6 +145,33 @@
         "importPath": "sys",
         "description": "sys",
         "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "test_dashboard_admin_login",
+        "kind": 2,
+        "importPath": "ecommerce.dashboard.test.test_selenium_dashboard",
+        "description": "ecommerce.dashboard.test.test_selenium_dashboard",
+        "peekOfCode": "def test_dashboard_admin_login(live_server, db_fixture_setup, chrome_browser_instance):\n    browser = chrome_browser_instance\n    browser.get((\"%s%s\" % (live_server.url, \"/admin/login/\")))\n    user_name = browser.find_element(By.NAME, \"username\")\n    user_password = browser.find_element(By.NAME, \"password\")\n    submit = browser.find_element(By.XPATH, '//input[@value=\"Log in\"]')\n    user_name.send_keys(\"admin\")\n    user_password.send_keys(\"password\")\n    submit.send_keys(Keys.RETURN)\n    assert \"Site administration\" in browser.page_source",
+        "detail": "ecommerce.dashboard.test.test_selenium_dashboard",
+        "documentation": {}
+    },
+    {
+        "label": "DashboardConfig",
+        "kind": 6,
+        "importPath": "ecommerce.dashboard.apps",
+        "description": "ecommerce.dashboard.apps",
+        "peekOfCode": "class DashboardConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'dashboard'",
+        "detail": "ecommerce.dashboard.apps",
+        "documentation": {}
+    },
+    {
+        "label": "chrome_browser_instance",
+        "kind": 2,
+        "importPath": "ecommerce.tests.selenium",
+        "description": "ecommerce.tests.selenium",
+        "peekOfCode": "def chrome_browser_instance(request):\n    \"\"\"\n    Provide a selenium webdriver instance\n    \"\"\"\n    options = Options()\n    options.headless = False\n    browser = webdriver.Chrome(options=options)\n    yield browser\n    browser.close()",
+        "detail": "ecommerce.tests.selenium",
         "documentation": {}
     },
     {
@@ -264,11 +364,20 @@
         "documentation": {}
     },
     {
+        "label": "pytest_plugins",
+        "kind": 5,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "pytest_plugins = [\n    # \"ecommerce.tests.fixtures\",\n    \"ecommerce.tests.selenium\",\n    # \"ecommerce.tests.factories\",\n]",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
         "label": "main",
         "kind": 2,
         "importPath": "manage",
         "description": "manage",
-        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"ecommerce.settings\")\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
         "detail": "manage",
         "documentation": {}
     }
