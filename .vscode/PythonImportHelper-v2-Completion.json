@@ -333,7 +333,7 @@
         "kind": 6,
         "importPath": "ecommerce.inventory.migrations.0001_initial",
         "description": "ecommerce.inventory.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Brand',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(help_text='format: required, unique, max-255', max_length=255, unique=True, verbose_name='brand name')),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Category',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(help_text='format: required, max-100', max_length=100, verbose_name='category name')),",
         "detail": "ecommerce.inventory.migrations.0001_initial",
         "documentation": {}
     },
@@ -370,87 +370,6 @@
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "peekOfCode": "class Category(MPTTModel):\n    \"\"\"\n    Inventory Category table implemented with MPTT\n    \"\"\"\n    name = models.CharField(\n        max_length=100,\n        null=False,\n        unique=False,\n        blank=False,\n        verbose_name=_(\"category name\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Product",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    \"\"\"\n    Product details table\n    \"\"\"\n    web_id = models.CharField(\n        max_length=50,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"product website ID\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProductType",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class ProductType(models.Model):\n    \"\"\"\n    Product type table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"type of product\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Brand",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class Brand(models.Model):\n    \"\"\"\n    Product brand table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"brand name\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProductAttribute",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class ProductAttribute(models.Model):\n    \"\"\"\n    Product attribute table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"product attribute name\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProductAttributeValue",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class ProductAttributeValue(models.Model):\n    \"\"\"\n    Product attribute value table\n    \"\"\"\n    product_attribute = models.ForeignKey(\n        ProductAttribute,\n        related_name=\"product_attribute\",\n        on_delete=models.PROTECT,\n    )\n    attribute_value = models.CharField(",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProductInventory",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class ProductInventory(models.Model):\n    \"\"\"\n    Product inventory table\n    \"\"\"\n    sku = models.CharField(\n        max_length=20,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"stock keeping unit\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Media",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class Media(models.Model):\n    \"\"\"\n    The product image table.\n    \"\"\"\n    product_inventory = models.ForeignKey(\n        ProductInventory,\n        on_delete=models.PROTECT,\n        related_name=\"media_product_inventory\",\n    )\n    image = models.ImageField(",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Stock",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class Stock(models.Model):\n    product_inventory = models.OneToOneField(\n        ProductInventory,\n        related_name=\"product_inventory\",\n        on_delete=models.PROTECT,\n    )\n    last_checked = models.DateTimeField(\n        unique=False,\n        null=True,\n        blank=True,",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProductAttributeValues",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class ProductAttributeValues(models.Model):\n    \"\"\"\n    Product attribute values link table\n    \"\"\"\n    attributevalues = models.ForeignKey(\n        \"ProductAttributeValue\",\n        related_name=\"attributevaluess\",\n        on_delete=models.PROTECT,\n    )\n    productinventory = models.ForeignKey(",
         "detail": "ecommerce.inventory.models",
         "documentation": {}
     },
