@@ -8,9 +8,7 @@ def create_admin_user(django_user_model):
     Return admin user for tests
 
     """
-    return django_user_model.objects.create_superuser(
-        "admin", "a@a.com", "password"
-    )
+    return django_user_model.objects.create_superuser("admin", "a@a.com", "password")
 
 
 @pytest.fixture(scope="session")

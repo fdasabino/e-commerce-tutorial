@@ -1,5 +1,6 @@
 import pytest
 from django.db import IntegrityError
+
 from ecommerce.inventory import models
 
 
@@ -12,9 +13,7 @@ from ecommerce.inventory import models
         (35, "baseball", "baseball", 1),
     ],
 )
-def test_inventory_category_dbfixture(
-    db, db_fixture_setup, id, name, slug, is_active
-):
+def test_inventory_category_dbfixture(db, db_fixture_setup, id, name, slug, is_active):
     result = models.Category.objects.get(id=id)
     assert result.name == name
     assert result.slug == slug
@@ -29,9 +28,7 @@ def test_inventory_category_dbfixture(
         ("baseball", "baseball", 1),
     ],
 )
-def test_inventory_category_insert_data(
-    db, category_factory, name, slug, is_active
-):
+def test_inventory_category_insert_data(db, category_factory, name, slug, is_active):
     result = category_factory.create(name=name, slug=slug, is_active=is_active)
     assert result.name == name
     assert result.slug == slug
@@ -95,9 +92,7 @@ def test_inventory_db_product_uniqueness_integrity(db, product_factory):
 
 
 @pytest.mark.dbfixture
-def test_inventory_db_product_insert_data(
-    db, product_factory, category_factory
-):
+def test_inventory_db_product_insert_data(db, product_factory, category_factory):
 
     new_product = product_factory.create(category=(1, 2, 3, 4, 5))
     result_product_category = new_product.category.all().count()
@@ -175,9 +170,7 @@ def test_inventory_db_product_inventory_dataset(
     assert result_updated_at == updated_at
 
 
-def test_inventory_db_product_inventory_insert_data(
-    db, product_inventory_factory
-):
+def test_inventory_db_product_inventory_insert_data(db, product_inventory_factory):
     new_product = product_inventory_factory.create(
         sku="123456789",
         upc="123456789",
@@ -203,9 +196,7 @@ def test_inventory_db_producttype_insert_data(db, product_type_factory):
     assert new_type.name == "demo_type"
 
 
-def test_inventory_db_producttype_uniqueness_integrity(
-    db, product_type_factory
-):
+def test_inventory_db_producttype_uniqueness_integrity(db, product_type_factory):
     product_type_factory.create(name="not_unique")
     with pytest.raises(IntegrityError):
         product_type_factory.create(name="not_unique")
@@ -324,9 +315,7 @@ def test_inventory_db_product_attribute_dataset(
     assert result.description == description
 
 
-def test_inventory_db_product_attrubite_insert_data(
-    db, product_attribute_factory
-):
+def test_inventory_db_product_attrubite_insert_data(db, product_attribute_factory):
     new_attribute = product_attribute_factory.create()
     assert new_attribute.name == "attribute_name_0"
     assert new_attribute.description == "description_0"
@@ -355,9 +344,7 @@ def test_inventory_db_product_attribute_dataset(
     assert result.attribute_value == "10"
 
 
-def test_inventory_db_product_attribute_value_data(
-    db, product_attribute_value_factory
-):
+def test_inventory_db_product_attribute_value_data(db, product_attribute_value_factory):
     new_attribute_value = product_attribute_value_factory.create(
         attribute_value="new_value", product_attribute__name="new_value"
     )
