@@ -33,8 +33,9 @@ class ProductFactory(factory.django.DjangoModelFactory):
         if not create or not extracted:
             return
 
-        for cat in extracted:
-            self.category.add(cat)
+        if extracted:
+            for cat in extracted:
+                self.category.add(cat)
 
 
 class ProductTypeFactory(factory.django.DjangoModelFactory):

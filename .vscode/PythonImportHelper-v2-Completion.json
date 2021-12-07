@@ -129,6 +129,14 @@
         "documentation": {}
     },
     {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "call_command",
         "importPath": "django.core.management",
         "description": "django.core.management",
@@ -153,6 +161,70 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "django.core",
+        "description": "django.core",
+        "isExtraImport": true,
+        "detail": "django.core",
+        "documentation": {}
+    },
+    {
+        "label": "management",
+        "importPath": "django.core",
+        "description": "django.core",
+        "isExtraImport": true,
+        "detail": "django.core",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "ecommerce.inventory",
+        "description": "ecommerce.inventory",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "ecommerce.inventory",
+        "description": "ecommerce.inventory",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "ecommerce.inventory",
+        "description": "ecommerce.inventory",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory",
+        "documentation": {}
+    },
+    {
         "label": "django.db.models.deletion",
         "kind": 6,
         "isExtraImport": true,
@@ -168,22 +240,6 @@
         "importPath": "mptt.fields",
         "description": "mptt.fields",
         "detail": "mptt.fields",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "ecommerce.inventory",
-        "description": "ecommerce.inventory",
-        "isExtraImport": true,
-        "detail": "ecommerce.inventory",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "ecommerce.inventory",
-        "description": "ecommerce.inventory",
-        "isExtraImport": true,
-        "detail": "ecommerce.inventory",
         "documentation": {}
     },
     {
@@ -252,6 +308,14 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "webdriver",
         "importPath": "selenium",
         "description": "selenium",
@@ -293,11 +357,12 @@
         "documentation": {}
     },
     {
-        "label": "path",
-        "importPath": "django.urls",
-        "description": "django.urls",
+        "label": "debug_toolbar",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "django.urls",
+        "importPath": "debug_toolbar",
+        "description": "debug_toolbar",
+        "detail": "debug_toolbar",
         "documentation": {}
     },
     {
@@ -318,14 +383,6 @@
         "documentation": {}
     },
     {
-        "label": "management",
-        "importPath": "django.core",
-        "description": "django.core",
-        "isExtraImport": true,
-        "detail": "django.core",
-        "documentation": {}
-    },
-    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -339,7 +396,7 @@
         "kind": 2,
         "importPath": "ecommerce.dashboard.tests.test_selenium_dashboard",
         "description": "ecommerce.dashboard.tests.test_selenium_dashboard",
-        "peekOfCode": "def test_dashboard_admin_login(live_server, db_fixture_setup, chrome_browser_instance):\n    browser = chrome_browser_instance\n    browser.get((\"%s%s\" % (live_server.url, \"/admin/login/\")))\n    user_name = browser.find_element(By.NAME, \"username\")\n    user_password = browser.find_element(By.NAME, \"password\")\n    submit = browser.find_element(By.XPATH, '//input[@value=\"Log in\"]')\n    user_name.send_keys(\"admin\")\n    user_password.send_keys(\"password\")\n    submit.send_keys(Keys.RETURN)\n    assert \"Site administration\" in browser.page_source",
+        "peekOfCode": "def test_dashboard_admin_login(\n    live_server, db_fixture_setup, chrome_browser_instance\n):\n    browser = chrome_browser_instance\n    browser.get((\"%s%s\" % (live_server.url, \"/admin/login/\")))\n    user_name = browser.find_element(By.NAME, \"username\")\n    user_password = browser.find_element(By.NAME, \"password\")\n    submit = browser.find_element(By.XPATH, '//input[@value=\"Log in\"]')\n    user_name.send_keys(\"admin\")\n    user_password.send_keys(\"password\")",
         "detail": "ecommerce.dashboard.tests.test_selenium_dashboard",
         "documentation": {}
     },
@@ -348,7 +405,7 @@
         "kind": 6,
         "importPath": "ecommerce.dashboard.apps",
         "description": "ecommerce.dashboard.apps",
-        "peekOfCode": "class DashboardConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"ecommerce.dashboard\"",
+        "peekOfCode": "class DashboardConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'ecommerce.dashboard'",
         "detail": "ecommerce.dashboard.apps",
         "documentation": {}
     },
@@ -357,7 +414,7 @@
         "kind": 6,
         "importPath": "ecommerce.demo.management.commands.load-fixtures",
         "description": "ecommerce.demo.management.commands.load-fixtures",
-        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")\n        call_command(\"loaddata\", \"db_product_inventory_fixture.json\")\n        call_command(\"loaddata\", \"db_media_fixture.json\")\n        call_command(\"loaddata\", \"db_stock_fixture.json\")",
+        "peekOfCode": "class Command(BaseCommand):\n    def handle(self, *args, **kwargs):\n        call_command(\"makemigrations\")\n        call_command(\"migrate\")\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_category_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")",
         "detail": "ecommerce.demo.management.commands.load-fixtures",
         "documentation": {}
     },
@@ -371,11 +428,74 @@
         "documentation": {}
     },
     {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "ecommerce.demo.urls",
+        "description": "ecommerce.demo.urls",
+        "peekOfCode": "app_name = \"demo\"\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"categories/\", views.category),\n    path(\"product-by-category/<slug:category>/\", views.product_by_category, name=\"product_by_category\"),\n    path(\"<slug:slug>\", views.product_detail, name=\"product_detail\"),\n]",
+        "detail": "ecommerce.demo.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "ecommerce.demo.urls",
+        "description": "ecommerce.demo.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"categories/\", views.category),\n    path(\"product-by-category/<slug:category>/\", views.product_by_category, name=\"product_by_category\"),\n    path(\"<slug:slug>\", views.product_detail, name=\"product_detail\"),\n]",
+        "detail": "ecommerce.demo.urls",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "ecommerce.demo.views",
+        "description": "ecommerce.demo.views",
+        "peekOfCode": "def home(request):\n    return render(request, \"index.html\")\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):",
+        "detail": "ecommerce.demo.views",
+        "documentation": {}
+    },
+    {
+        "label": "category",
+        "kind": 2,
+        "importPath": "ecommerce.demo.views",
+        "description": "ecommerce.demo.views",
+        "peekOfCode": "def category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = models.Product.objects.filter(category__name=category).filter(product__is_default=True).values(",
+        "detail": "ecommerce.demo.views",
+        "documentation": {}
+    },
+    {
+        "label": "category",
+        "kind": 2,
+        "importPath": "ecommerce.demo.views",
+        "description": "ecommerce.demo.views",
+        "peekOfCode": "def category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = models.Product.objects.filter(category__name=category).filter(product__is_default=True).values(\n        \"id\", \"name\", \"slug\", \"created_at\", \"category__name\", \"product__store_price\"\n    )\n    # data = serializers.serialize(\"json\", x, indent=4)",
+        "detail": "ecommerce.demo.views",
+        "documentation": {}
+    },
+    {
+        "label": "product_by_category",
+        "kind": 2,
+        "importPath": "ecommerce.demo.views",
+        "description": "ecommerce.demo.views",
+        "peekOfCode": "def product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = models.Product.objects.filter(category__name=category).filter(product__is_default=True).values(\n        \"id\", \"name\", \"slug\", \"created_at\", \"category__name\", \"product__store_price\"\n    )\n    # data = serializers.serialize(\"json\", x, indent=4)\n    return render(request, \"product_by_category.html\", {\"data\": y})\ndef product_detail(request, slug):\n    # x = models.Product.objects.filter(slug=slug)",
+        "detail": "ecommerce.demo.views",
+        "documentation": {}
+    },
+    {
+        "label": "product_detail",
+        "kind": 2,
+        "importPath": "ecommerce.demo.views",
+        "description": "ecommerce.demo.views",
+        "peekOfCode": "def product_detail(request, slug):\n    # x = models.Product.objects.filter(slug=slug)\n    # x = models.ProductInventory.objects.filter(product__slug=slug).values(\"id\", \"product__name\", \"store_price\", \"is_default\", \"attribute_values__attribute_value\")\n    # Using chained filters approach\n    # x = models.ProductInventory.objects.filter(product__slug=slug).filter(attribute_values__attribute_value=\"red\").filter(attribute_values__attribute_value=5).select_related('product')\n    # from django.db.models import Count\n    # filter_arguments = [5, \"red\"]\n    # x = models.ProductInventory.objects.filter(product__slug=slug).filter(attribute_values__attribute_value__in=filter_arguments).annotate(num_tags=Count('attribute_values')).filter(num_tags=len(filter_arguments))\n    # Dynamic Filter\n    filter_arguments = []",
+        "detail": "ecommerce.demo.views",
+        "documentation": {}
+    },
+    {
         "label": "Migration",
         "kind": 6,
         "importPath": "ecommerce.inventory.migrations.0001_initial",
         "description": "ecommerce.inventory.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = []\n    operations = [\n        migrations.CreateModel(\n            name=\"Brand\",\n            fields=[\n                (\n                    \"id\",\n                    models.BigAutoField(",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Brand',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(help_text='format: required, unique, max-255', max_length=255, unique=True, verbose_name='brand name')),",
         "detail": "ecommerce.inventory.migrations.0001_initial",
         "documentation": {}
     },
@@ -384,16 +504,16 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_category_dbfixture(db, db_fixture_setup, id, name, slug, is_active):\n    result = models.Category.objects.get(id=id)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.parametrize(\n    \"name, slug, is_active\",\n    [\n        (\"fashion\", \"fashion\", 1),\n        (\"trainers\", \"trainers\", 1),",
+        "peekOfCode": "def test_inventory_category_dbfixture(\n    db, db_fixture_setup, id, name, slug, is_active\n):\n    result = models.Category.objects.get(id=id)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.parametrize(\n    \"slug, is_active\",\n    [",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
     {
-        "label": "test_inventory_category_insert_data",
+        "label": "test_inventory_db_category_insert_data",
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_category_insert_data(db, category_factory, name, slug, is_active):\n    result = category_factory.create(name=name, slug=slug, is_active=is_active)\n    assert result.name == name\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, web_id, name, slug, description, is_active, created_at, updated_at\",\n    [\n        (",
+        "peekOfCode": "def test_inventory_db_category_insert_data(\n    db, category_factory, slug, is_active\n):\n    result = category_factory.create(slug=slug, is_active=is_active)\n    assert result.slug == slug\n    assert result.is_active == is_active\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, web_id, name, slug, description, is_active, created_at, updated_at\",\n    [",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -411,7 +531,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_uniqueness_integrity(db, product_factory):\n    new_web_id = product_factory.create(web_id=123456789)\n    with pytest.raises(IntegrityError):\n        product_factory.create(web_id=123456789)\n@pytest.mark.dbfixture\ndef test_inventory_db_product_insert_data(db, product_factory, category_factory):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()\n    assert \"web_id_\" in new_product.web_id\n    assert result_product_category == 5",
+        "peekOfCode": "def test_inventory_db_product_uniqueness_integrity(db, product_factory):\n    new_web_id = product_factory.create(web_id=123456789)\n    with pytest.raises(IntegrityError):\n        product_factory.create(web_id=123456789)\n@pytest.mark.dbfixture\ndef test_inventory_db_product_insert_data(\n    db, product_factory, category_factory\n):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -420,7 +540,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_insert_data(db, product_factory, category_factory):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()\n    assert \"web_id_\" in new_product.web_id\n    assert result_product_category == 5\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, sku, upc, product_type, product, brand, is_active, retail_price, store_price, sale_price, weight, created_at, updated_at\",\n    [\n        (",
+        "peekOfCode": "def test_inventory_db_product_insert_data(\n    db, product_factory, category_factory\n):\n    new_product = product_factory.create(category=(1, 2, 3, 4, 5))\n    result_product_category = new_product.category.all().count()\n    assert \"web_id_\" in new_product.web_id\n    assert result_product_category == 5\n@pytest.mark.dbfixture\n@pytest.mark.parametrize(\n    \"id, sku, upc, product_type, product, brand, is_active, retail_price, store_price, sale_price, weight, created_at, updated_at\",",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -438,7 +558,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_inventory_insert_data(db, product_inventory_factory):\n    new_product = product_inventory_factory.create(\n        sku=\"123456789\",\n        upc=\"123456789\",\n        product_type__name=\"new_name\",\n        product__web_id=\"123456789\",\n        brand__name=\"new_name\",\n    )\n    assert new_product.sku == \"123456789\"\n    assert new_product.upc == \"123456789\"",
+        "peekOfCode": "def test_inventory_db_product_inventory_insert_data(\n    db, product_inventory_factory\n):\n    new_product = product_inventory_factory.create(\n        sku=\"123456789\",\n        upc=\"123456789\",\n        product_type__name=\"new_name\",\n        product__web_id=\"123456789\",\n        brand__name=\"new_name\",\n    )",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -447,7 +567,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_producttype_insert_data(db, product_type_factory):\n    new_type = product_type_factory.create(name=\"demo_type\")\n    assert new_type.name == \"demo_type\"\ndef test_inventory_db_producttype_uniqueness_integrity(db, product_type_factory):\n    product_type_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_type_factory.create(name=\"not_unique\")\ndef test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"",
+        "peekOfCode": "def test_inventory_db_producttype_insert_data(db, product_type_factory):\n    new_type = product_type_factory.create(name=\"demo_type\")\n    assert new_type.name == \"demo_type\"\ndef test_inventory_db_producttype_uniqueness_integrity(\n    db, product_type_factory\n):\n    product_type_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_type_factory.create(name=\"not_unique\")\ndef test_inventory_db_brand_insert_data(db, brand_factory):",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -456,7 +576,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_producttype_uniqueness_integrity(db, product_type_factory):\n    product_type_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_type_factory.create(name=\"not_unique\")\ndef test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"\ndef test_inventory_db_brand_uniqueness_integrity(db, brand_factory):\n    brand_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):",
+        "peekOfCode": "def test_inventory_db_producttype_uniqueness_integrity(\n    db, product_type_factory\n):\n    product_type_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_type_factory.create(name=\"not_unique\")\ndef test_inventory_db_brand_insert_data(db, brand_factory):\n    new_brand = brand_factory.create(name=\"demo_brand\")\n    assert new_brand.name == \"demo_brand\"\ndef test_inventory_db_brand_uniqueness_integrity(db, brand_factory):",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -519,7 +639,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_attribute_dataset(\n    db, db_fixture_setup, id, name, description\n):\n    result = models.ProductAttribute.objects.get(id=id)\n    assert result.name == name\n    assert result.description == description\ndef test_inventory_db_product_attrubite_insert_data(db, product_attribute_factory):\n    new_attribute = product_attribute_factory.create()\n    assert new_attribute.name == \"attribute_name_0\"\n    assert new_attribute.description == \"description_0\"",
+        "peekOfCode": "def test_inventory_db_product_attribute_dataset(\n    db, db_fixture_setup, id, name, description\n):\n    result = models.ProductAttribute.objects.get(id=id)\n    assert result.name == name\n    assert result.description == description\ndef test_inventory_db_product_attrubite_insert_data(\n    db, product_attribute_factory\n):\n    new_attribute = product_attribute_factory.create()",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -528,7 +648,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_attrubite_insert_data(db, product_attribute_factory):\n    new_attribute = product_attribute_factory.create()\n    assert new_attribute.name == \"attribute_name_0\"\n    assert new_attribute.description == \"description_0\"\ndef test_inventory_db_product_attrubite_uniqueness_integrity(\n    db, product_attribute_factory\n):\n    product_attribute_factory.create(name=\"not_unique\")\n    with pytest.raises(IntegrityError):\n        product_attribute_factory.create(name=\"not_unique\")",
+        "peekOfCode": "def test_inventory_db_product_attrubite_insert_data(\n    db, product_attribute_factory\n):\n    new_attribute = product_attribute_factory.create()\n    assert new_attribute.name == \"attribute_name_0\"\n    assert new_attribute.description == \"description_0\"\ndef test_inventory_db_product_attrubite_uniqueness_integrity(\n    db, product_attribute_factory\n):\n    product_attribute_factory.create(name=\"not_unique\")",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -546,7 +666,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_attribute_dataset(\n    db, db_fixture_setup, id, product_attribute, attribute_value\n):\n    result = models.ProductAttributeValue.objects.get(id=1)\n    assert result.product_attribute.id == 1\n    assert result.attribute_value == \"10\"\ndef test_inventory_db_product_attribute_value_data(db, product_attribute_value_factory):\n    new_attribute_value = product_attribute_value_factory.create(\n        attribute_value=\"new_value\", product_attribute__name=\"new_value\"\n    )",
+        "peekOfCode": "def test_inventory_db_product_attribute_dataset(\n    db, db_fixture_setup, id, product_attribute, attribute_value\n):\n    result = models.ProductAttributeValue.objects.get(id=1)\n    assert result.product_attribute.id == 1\n    assert result.attribute_value == \"10\"\ndef test_inventory_db_product_attribute_value_data(\n    db, product_attribute_value_factory\n):\n    new_attribute_value = product_attribute_value_factory.create(",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -555,7 +675,7 @@
         "kind": 2,
         "importPath": "ecommerce.inventory.tests.test_db_fixtures",
         "description": "ecommerce.inventory.tests.test_db_fixtures",
-        "peekOfCode": "def test_inventory_db_product_attribute_value_data(db, product_attribute_value_factory):\n    new_attribute_value = product_attribute_value_factory.create(\n        attribute_value=\"new_value\", product_attribute__name=\"new_value\"\n    )\n    assert new_attribute_value.attribute_value == \"new_value\"\n    assert new_attribute_value.product_attribute.name == \"new_value\"\ndef test_inventory_db_insert_inventory_product_values(\n    db, product_with_attribute_values_factory\n):\n    new_inv_attribute = product_with_attribute_values_factory(sku=\"123456789\")",
+        "peekOfCode": "def test_inventory_db_product_attribute_value_data(\n    db, product_attribute_value_factory\n):\n    new_attribute_value = product_attribute_value_factory.create(\n        attribute_value=\"new_value\", product_attribute__name=\"new_value\"\n    )\n    assert new_attribute_value.attribute_value == \"new_value\"\n    assert new_attribute_value.product_attribute.name == \"new_value\"\ndef test_inventory_db_insert_inventory_product_values(\n    db, product_with_attribute_values_factory",
         "detail": "ecommerce.inventory.tests.test_db_fixtures",
         "documentation": {}
     },
@@ -582,7 +702,7 @@
         "kind": 6,
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
-        "peekOfCode": "class Category(MPTTModel):\n    \"\"\"\n    Inventory Category table implemented with MPTT\n    \"\"\"\n    name = models.CharField(\n        max_length=100,\n        null=False,\n        unique=False,\n        blank=False,\n        verbose_name=_(\"category name\"),",
+        "peekOfCode": "class Category(MPTTModel):\n    \"\"\"\n    Inventory Category table implimented with MPTT\n    \"\"\"\n    name = models.CharField(\n        max_length=100,\n        null=False,\n        unique=False,\n        blank=False,\n        verbose_name=_(\"category name\"),",
         "detail": "ecommerce.inventory.models",
         "documentation": {}
     },
@@ -592,15 +712,6 @@
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "peekOfCode": "class Product(models.Model):\n    \"\"\"\n    Product details table\n    \"\"\"\n    web_id = models.CharField(\n        max_length=50,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"product website ID\"),",
-        "detail": "ecommerce.inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProductType",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "peekOfCode": "class ProductType(models.Model):\n    \"\"\"\n    Product type table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"type of product\"),",
         "detail": "ecommerce.inventory.models",
         "documentation": {}
     },
@@ -619,6 +730,15 @@
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "peekOfCode": "class ProductAttribute(models.Model):\n    \"\"\"\n    Product attribute table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"product attribute name\"),",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductType",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductType(models.Model):\n    \"\"\"\n    Product type table\n    \"\"\"\n    name = models.CharField(\n        max_length=255,\n        unique=True,\n        null=False,\n        blank=False,\n        verbose_name=_(\"type of product\"),",
         "detail": "ecommerce.inventory.models",
         "documentation": {}
     },
@@ -664,6 +784,15 @@
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "peekOfCode": "class ProductAttributeValues(models.Model):\n    \"\"\"\n    Product attribute values link table\n    \"\"\"\n    attributevalues = models.ForeignKey(\n        \"ProductAttributeValue\",\n        related_name=\"attributevaluess\",\n        on_delete=models.PROTECT,\n    )\n    productinventory = models.ForeignKey(",
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductTypeAttribute",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "peekOfCode": "class ProductTypeAttribute(models.Model):\n    \"\"\"\n    Product type attributes link table\n    \"\"\"\n    product_attribute = models.ForeignKey(\n        ProductAttribute,\n        related_name=\"productattribute\",\n        on_delete=models.PROTECT,\n    )\n    product_type = models.ForeignKey(",
         "detail": "ecommerce.inventory.models",
         "documentation": {}
     },
@@ -780,7 +909,7 @@
         "kind": 2,
         "importPath": "ecommerce.tests.fixtures",
         "description": "ecommerce.tests.fixtures",
-        "peekOfCode": "def create_admin_user(django_user_model):\n    \"\"\"\n    Return admin user for tests\n    \"\"\"\n    return django_user_model.objects.create_superuser(\"admin\", \"a@a.com\", \"password\")\n@pytest.fixture(scope=\"session\")\ndef db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"",
+        "peekOfCode": "def create_admin_user(django_user_model):\n    \"\"\"\n    Return admin user\n    \"\"\"\n    return django_user_model.objects.create_superuser(\n        \"admin\", \"a@a.com\", \"password\"\n    )\n@pytest.fixture(scope=\"session\")\ndef db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"",
         "detail": "ecommerce.tests.fixtures",
         "documentation": {}
     },
@@ -789,7 +918,7 @@
         "kind": 2,
         "importPath": "ecommerce.tests.fixtures",
         "description": "ecommerce.tests.fixtures",
-        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load database fixtures for tests\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")",
+        "peekOfCode": "def db_fixture_setup(django_db_setup, django_db_blocker):\n    \"\"\"\n    Load DB data fixtures\n    \"\"\"\n    with django_db_blocker.unblock():\n        call_command(\"loaddata\", \"db_admin_fixture.json\")\n        call_command(\"loaddata\", \"db_category_fixture.json\")\n        call_command(\"loaddata\", \"db_product_fixture.json\")\n        call_command(\"loaddata\", \"db_type_fixture.json\")\n        call_command(\"loaddata\", \"db_brand_fixture.json\")",
         "detail": "ecommerce.tests.fixtures",
         "documentation": {}
     },
@@ -816,7 +945,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-_83&(d$0ypq!^%5$=bys*@(k9j-x2f4&x0m@$ab3w2+#&27mss\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nSECRET_KEY = (\n    \"django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h\"\n)\nDEBUG = True\nALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -825,7 +954,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "SECRET_KEY = \"django-insecure-_83&(d$0ypq!^%5$=bys*@(k9j-x2f4&x0m@$ab3w2+#&27mss\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "peekOfCode": "SECRET_KEY = (\n    \"django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h\"\n)\nDEBUG = True\nALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -834,7 +963,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -843,7 +972,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # local applications",
+        "peekOfCode": "ALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # Local applications",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -852,7 +981,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # local applications\n    \"ecommerce.dashboard\",\n    \"ecommerce.inventory\",",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # Local applications\n    \"ecommerce.dashboard\",\n    \"ecommerce.inventory\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -861,7 +990,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"ecommerce.urls\"",
+        "peekOfCode": "MIDDLEWARE = [\n    \"debug_toolbar.middleware.DebugToolbarMiddleware\",\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    # \"django.middleware.cache.UpdateCacheMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    # \"django.middleware.cache.FetchFromCacheMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -888,7 +1017,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "WSGI_APPLICATION = \"ecommerce.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = \"ecommerce.wsgi.application\"\n# Database\n# DATABASES = {\n#     \"default\": {\n#         \"ENGINE\": \"django.db.backends.sqlite3\",\n#         \"NAME\": BASE_DIR / \"db.sqlite3\",\n#     }\n# }\nDATABASES = {\n    \"default\": {",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -897,7 +1026,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql_psycopg2\",\n        \"NAME\": \"postgres\",\n        \"USER\": \"postgres\",\n        \"PASSWORD\": \"postgres\",\n        \"HOST\": \"127.0.0.1\",\n        \"PORT\": \"5432\",\n    }\n}",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -933,7 +1062,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -942,7 +1071,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "USE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -951,7 +1080,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -960,7 +1089,16 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
+        "detail": "ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INTERNAL_IPS",
+        "kind": 5,
+        "importPath": "ecommerce.settings",
+        "description": "ecommerce.settings",
+        "peekOfCode": "INTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -969,7 +1107,7 @@
         "kind": 5,
         "importPath": "ecommerce.urls",
         "description": "ecommerce.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path(\"demo/\", include(\"ecommerce.demo.urls\", namespace=\"demo\")),\n    path(\"__debug__/\", include(debug_toolbar.urls)),\n]",
         "detail": "ecommerce.urls",
         "documentation": {}
     },
@@ -996,7 +1134,7 @@
         "kind": 2,
         "importPath": "manage",
         "description": "manage",
-        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"ecommerce.settings\")\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
         "detail": "manage",
         "documentation": {}
     }
