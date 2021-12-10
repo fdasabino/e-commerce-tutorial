@@ -185,6 +185,14 @@
         "documentation": {}
     },
     {
+        "label": "ArrayAgg",
+        "importPath": "django.contrib.postgres.aggregates",
+        "description": "django.contrib.postgres.aggregates",
+        "isExtraImport": true,
+        "detail": "django.contrib.postgres.aggregates",
+        "documentation": {}
+    },
+    {
         "label": "serializers",
         "importPath": "django.core",
         "description": "django.core",
@@ -198,6 +206,14 @@
         "description": "django.core",
         "isExtraImport": true,
         "detail": "django.core",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
         "documentation": {}
     },
     {
@@ -450,7 +466,7 @@
         "kind": 2,
         "importPath": "ecommerce.demo.views",
         "description": "ecommerce.demo.views",
-        "peekOfCode": "def home(request):\n    return render(request, \"index.html\")\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):",
+        "peekOfCode": "def home(request):\n    return render(request, \"index.html\")\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = (\n        models.Product.objects.filter(category__name=category)",
         "detail": "ecommerce.demo.views",
         "documentation": {}
     },
@@ -459,16 +475,7 @@
         "kind": 2,
         "importPath": "ecommerce.demo.views",
         "description": "ecommerce.demo.views",
-        "peekOfCode": "def category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = models.Product.objects.filter(category__name=category).filter(product__is_default=True).values(",
-        "detail": "ecommerce.demo.views",
-        "documentation": {}
-    },
-    {
-        "label": "category",
-        "kind": 2,
-        "importPath": "ecommerce.demo.views",
-        "description": "ecommerce.demo.views",
-        "peekOfCode": "def category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = models.Product.objects.filter(category__name=category).filter(product__is_default=True).values(\n        \"id\", \"name\", \"slug\", \"created_at\", \"category__name\", \"product__store_price\"\n    )\n    # data = serializers.serialize(\"json\", x, indent=4)",
+        "peekOfCode": "def category(request):\n    data = models.Category.objects.all()\n    return render(request, \"categories.html\", {\"data\": data})\ndef product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = (\n        models.Product.objects.filter(category__name=category)\n        .filter(product__is_default=True)\n        .values(",
         "detail": "ecommerce.demo.views",
         "documentation": {}
     },
@@ -477,7 +484,7 @@
         "kind": 2,
         "importPath": "ecommerce.demo.views",
         "description": "ecommerce.demo.views",
-        "peekOfCode": "def product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = models.Product.objects.filter(category__name=category).filter(product__is_default=True).values(\n        \"id\", \"name\", \"slug\", \"created_at\", \"category__name\", \"product__store_price\"\n    )\n    # data = serializers.serialize(\"json\", x, indent=4)\n    return render(request, \"product_by_category.html\", {\"data\": y})\ndef product_detail(request, slug):\n    # x = models.Product.objects.filter(slug=slug)",
+        "peekOfCode": "def product_by_category(request, category):\n    # x = models.Product.objects.filter(category__name=\"fashion\")\n    # print(models.Product.objects.filter(category__name=\"fashion\").explain(verbose=True, analyze=True))\n    y = (\n        models.Product.objects.filter(category__name=category)\n        .filter(product__is_default=True)\n        .values(\n            \"id\",\n            \"name\",\n            \"slug\",",
         "detail": "ecommerce.demo.views",
         "documentation": {}
     },
@@ -486,7 +493,7 @@
         "kind": 2,
         "importPath": "ecommerce.demo.views",
         "description": "ecommerce.demo.views",
-        "peekOfCode": "def product_detail(request, slug):\n    # x = models.Product.objects.filter(slug=slug)\n    # x = models.ProductInventory.objects.filter(product__slug=slug).values(\"id\", \"product__name\", \"store_price\", \"is_default\", \"attribute_values__attribute_value\")\n    # Using chained filters approach\n    # x = models.ProductInventory.objects.filter(product__slug=slug).filter(attribute_values__attribute_value=\"red\").filter(attribute_values__attribute_value=5).select_related('product')\n    # from django.db.models import Count\n    # filter_arguments = [5, \"red\"]\n    # x = models.ProductInventory.objects.filter(product__slug=slug).filter(attribute_values__attribute_value__in=filter_arguments).annotate(num_tags=Count('attribute_values')).filter(num_tags=len(filter_arguments))\n    # Dynamic Filter\n    filter_arguments = []",
+        "peekOfCode": "def product_detail(request, slug):\n    # Dynamic Filter\n    filter_arguments = []\n    if request.GET:\n        for value in request.GET.values():\n            filter_arguments.append(value)\n        x = (\n            models.ProductInventory.objects.filter(product__slug=slug)\n            .filter(attribute_values__attribute_value__in=filter_arguments)\n            .annotate(num_tags=Count(\"attribute_values\"))",
         "detail": "ecommerce.demo.views",
         "documentation": {}
     },
