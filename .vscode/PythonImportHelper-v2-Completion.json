@@ -161,14 +161,6 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
         "label": "call_command",
         "importPath": "django.core.management",
         "description": "django.core.management",
@@ -273,11 +265,83 @@
         "documentation": {}
     },
     {
+        "label": "Product",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "mixins",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "routers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
         "isExtraImport": true,
         "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "AllProducts",
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "isExtraImport": true,
+        "detail": "ecommerce.drf.serializer",
         "documentation": {}
     },
     {
@@ -296,14 +360,6 @@
         "importPath": "mptt.fields",
         "description": "mptt.fields",
         "detail": "mptt.fields",
-        "documentation": {}
-    },
-    {
-        "label": "Category",
-        "importPath": "ecommerce.inventory.models",
-        "description": "ecommerce.inventory.models",
-        "isExtraImport": true,
-        "detail": "ecommerce.inventory.models",
         "documentation": {}
     },
     {
@@ -419,6 +475,14 @@
         "importPath": "debug_toolbar",
         "description": "debug_toolbar",
         "detail": "debug_toolbar",
+        "documentation": {}
+    },
+    {
+        "label": "views",
+        "importPath": "ecommerce.drf",
+        "description": "ecommerce.drf",
+        "isExtraImport": true,
+        "detail": "ecommerce.drf",
         "documentation": {}
     },
     {
@@ -544,6 +608,24 @@
         "description": "ecommerce.drf.apps",
         "peekOfCode": "class DrfConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"ecommerce.drf\"",
         "detail": "ecommerce.drf.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AllProducts",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class AllProducts(serializers.ModelSerializer):\n    \"\"\"\n    Serialize the permission set.\n    \"\"\"\n    class Meta:\n        model = Product\n        fields = \"__all__\"\n        read_only = True\n        editable = False",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "AllProductsViewset",
+        "kind": 6,
+        "importPath": "ecommerce.drf.views",
+        "description": "ecommerce.drf.views",
+        "peekOfCode": "class AllProductsViewset(\n    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin\n):\n    \"\"\"\n    Serialize the permission set.\n    \"\"\"\n    queryset = Product.objects.all()\n    serializer_class = AllProducts\n    permission_classes = [permissions.IsAuthenticatedOrReadOnly]\n    lookup_field = \"slug\"",
+        "detail": "ecommerce.drf.views",
         "documentation": {}
     },
     {
@@ -1136,7 +1218,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
+        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1145,7 +1227,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,\n}",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1154,8 +1236,26 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "INTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
+        "peekOfCode": "INTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,\n}",
         "detail": "ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "ecommerce.settings",
+        "description": "ecommerce.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,\n}",
+        "detail": "ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "ecommerce.urls",
+        "description": "ecommerce.urls",
+        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register(r\"api\", views.AllProductsViewset, basename=\"allproducts\")\nurlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"admin/\", admin.site.urls),\n    path(\"demo/\", include(\"ecommerce.demo.urls\", namespace=\"demo\")),\n    path(\"__debug__/\", include(debug_toolbar.urls)),\n]",
+        "detail": "ecommerce.urls",
         "documentation": {}
     },
     {
@@ -1163,7 +1263,7 @@
         "kind": 5,
         "importPath": "ecommerce.urls",
         "description": "ecommerce.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path(\"demo/\", include(\"ecommerce.demo.urls\", namespace=\"demo\")),\n    path(\"__debug__/\", include(debug_toolbar.urls)),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"admin/\", admin.site.urls),\n    path(\"demo/\", include(\"ecommerce.demo.urls\", namespace=\"demo\")),\n    path(\"__debug__/\", include(debug_toolbar.urls)),\n]",
         "detail": "ecommerce.urls",
         "documentation": {}
     },

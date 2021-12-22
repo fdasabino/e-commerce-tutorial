@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from ecommerce.drf.serializer import AllProducts
+from ecommerce.inventory.models import Product
+from rest_framework import mixins, permissions, viewsets
 
-# Create your views here.
+
+class AllProductsViewset(
+    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin
+):
+    """
+    Serialize the permission set.
+    """
+
+    queryset = Product.objects.all()
+    serializer_class = AllProducts
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    lookup_field = "slug"
