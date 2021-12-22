@@ -267,30 +267,6 @@
         "documentation": {}
     },
     {
-        "label": "Document",
-        "importPath": "django_elasticsearch_dsl",
-        "description": "django_elasticsearch_dsl",
-        "isExtraImport": true,
-        "detail": "django_elasticsearch_dsl",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "django_elasticsearch_dsl",
-        "description": "django_elasticsearch_dsl",
-        "isExtraImport": true,
-        "detail": "django_elasticsearch_dsl",
-        "documentation": {}
-    },
-    {
-        "label": "registry",
-        "importPath": "django_elasticsearch_dsl.registries",
-        "description": "django_elasticsearch_dsl.registries",
-        "isExtraImport": true,
-        "detail": "django_elasticsearch_dsl.registries",
-        "documentation": {}
-    },
-    {
         "label": "gettext_lazy",
         "importPath": "django.utils.translation",
         "description": "django.utils.translation",
@@ -729,15 +705,6 @@
         "documentation": {}
     },
     {
-        "label": "ProductInventoryDocument",
-        "kind": 6,
-        "importPath": "ecommerce.inventory.documents",
-        "description": "ecommerce.inventory.documents",
-        "peekOfCode": "class ProductInventoryDocument(Document):\n    product = fields.ObjectField(properties={\"name\": fields.TextField()})\n    product_inventory = fields.ObjectField(\n        properties={\"units\": fields.IntegerField()}\n    )\n    class Index:\n        name = \"productinventory\"\n    class Django:\n        model = ProductInventory\n        fields = [\"id\", \"sku\"]",
-        "detail": "ecommerce.inventory.documents",
-        "documentation": {}
-    },
-    {
         "label": "Category",
         "kind": 6,
         "importPath": "ecommerce.inventory.models",
@@ -1120,7 +1087,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
+        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1129,7 +1096,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1138,16 +1105,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "INTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
-        "detail": "ecommerce.settings",
-        "documentation": {}
-    },
-    {
-        "label": "ELASTICSEARCH_DSL",
-        "kind": 5,
-        "importPath": "ecommerce.settings",
-        "description": "ecommerce.settings",
-        "peekOfCode": "ELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
+        "peekOfCode": "INTERNAL_IPS = [\n    \"127.0.0.1\",\n]",
         "detail": "ecommerce.settings",
         "documentation": {}
     },

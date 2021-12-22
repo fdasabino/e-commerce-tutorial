@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     "ecommerce.demo",
     # External applications
     "mptt",
-    "django_elasticsearch_dsl",
     # Development
     "debug_toolbar",
 ]
@@ -124,5 +123,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
-ELASTICSEARCH_DSL = {"default": {"hosts": "localhost:9200"}}
