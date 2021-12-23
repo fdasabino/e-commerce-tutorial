@@ -7,6 +7,11 @@ from ecommerce.drf import views
 
 router = routers.DefaultRouter()
 router.register(r"api", views.AllProductsViewset, basename="allproducts")
+router.register(
+    r"product/(?P<slug>[^/.]+)",
+    views.ProductInventoryViewset,
+    basename="product",
+)
 
 urlpatterns = [
     path("", include(router.urls)),

@@ -41,22 +41,6 @@
         "documentation": {}
     },
     {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -86,14 +70,6 @@
         "description": "django.apps",
         "isExtraImport": true,
         "detail": "django.apps",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -121,6 +97,14 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "IntegrityError",
         "importPath": "django.db",
         "description": "django.db",
@@ -134,14 +118,6 @@
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -265,7 +241,7 @@
         "documentation": {}
     },
     {
-        "label": "Product",
+        "label": "*",
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "isExtraImport": true,
@@ -281,7 +257,7 @@
         "documentation": {}
     },
     {
-        "label": "Category",
+        "label": "ProductInventory",
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "isExtraImport": true,
@@ -313,6 +289,14 @@
         "documentation": {}
     },
     {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "viewsets",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -329,19 +313,27 @@
         "documentation": {}
     },
     {
-        "label": "TestCase",
-        "importPath": "django.test",
-        "description": "django.test",
-        "isExtraImport": true,
-        "detail": "django.test",
-        "documentation": {}
-    },
-    {
         "label": "AllProducts",
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
         "isExtraImport": true,
         "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventorySerializer",
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "isExtraImport": true,
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -611,11 +603,47 @@
         "documentation": {}
     },
     {
+        "label": "MediaSerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class MediaSerializer(serializers.ModelSerializer):\n    image = serializers.SerializerMethodField()\n    class Meta:\n        model = Media\n        fields = [\"image\", \"alt_text\"]\n        read_only = True\n    def get_image(self, obj):\n        return self.context[\"request\"].build_absolute_uri(obj.image.url)\nclass ProductAttributeValueSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeValueSerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class ProductAttributeValueSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = ProductAttributeValue\n        exclude = [\"id\"]\n        depth = 2\nclass BrandSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Returns brand name\n    \"\"\"\n    class Meta:",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "BrandSerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class BrandSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Returns brand name\n    \"\"\"\n    class Meta:\n        model = Brand\n        fields = [\"name\"]\nclass AllProducts(serializers.ModelSerializer):\n    \"\"\"\n    All products",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
         "label": "AllProducts",
         "kind": 6,
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
-        "peekOfCode": "class AllProducts(serializers.ModelSerializer):\n    \"\"\"\n    Serialize the permission set.\n    \"\"\"\n    class Meta:\n        model = Product\n        fields = \"__all__\"\n        read_only = True\n        editable = False",
+        "peekOfCode": "class AllProducts(serializers.ModelSerializer):\n    \"\"\"\n    All products\n    \"\"\"\n    class Meta:\n        model = Product\n        fields = \"__all__\"\n        read_only = True\n        editable = False\nclass ProductInventorySerializer(serializers.ModelSerializer):",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventorySerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class ProductInventorySerializer(serializers.ModelSerializer):\n    \"\"\"\n    Returns a list of items in the inventory\n    \"\"\"\n    brand = BrandSerializer(many=False, read_only=True)\n    attributes = ProductAttributeValueSerializer(\n        source=\"attribute_values\", many=True\n    )\n    image = MediaSerializer(source=\"media_product_inventory\", many=True)\n    class Meta:",
         "detail": "ecommerce.drf.serializer",
         "documentation": {}
     },
@@ -624,7 +652,16 @@
         "kind": 6,
         "importPath": "ecommerce.drf.views",
         "description": "ecommerce.drf.views",
-        "peekOfCode": "class AllProductsViewset(\n    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin\n):\n    \"\"\"\n    Serialize the permission set.\n    \"\"\"\n    queryset = Product.objects.all()\n    serializer_class = AllProducts\n    permission_classes = [permissions.IsAuthenticatedOrReadOnly]\n    lookup_field = \"slug\"",
+        "peekOfCode": "class AllProductsViewset(\n    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin\n):\n    queryset = Product.objects.all()\n    serializer_class = AllProducts\n    permission_classes = [permissions.IsAuthenticatedOrReadOnly]\n    lookup_field = \"slug\"\n    def retrieve(self, request, slug=None):\n        queryset = Product.objects.filter(category__slug=slug)[:10]\n        serializer = AllProducts(queryset, many=True)",
+        "detail": "ecommerce.drf.views",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventoryViewset",
+        "kind": 6,
+        "importPath": "ecommerce.drf.views",
+        "description": "ecommerce.drf.views",
+        "peekOfCode": "class ProductInventoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin):\n    queryset = ProductInventory.objects.all()\n    def list(self, request, slug=None):\n        queryset = ProductInventory.objects.filter(\n            product__category__slug=slug,\n        ).filter(is_default=True)[:10]\n        serializer = ProductInventorySerializer(\n            queryset, context={\"request\": request}, many=\"True\"\n        )\n        return Response(serializer.data)",
         "detail": "ecommerce.drf.views",
         "documentation": {}
     },
@@ -635,6 +672,15 @@
         "description": "ecommerce.inventory.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Brand',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(help_text='format: required, unique, max-255', max_length=255, unique=True, verbose_name='brand name')),",
         "detail": "ecommerce.inventory.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "ecommerce.inventory.migrations.0002_rename_img_url_media_image",
+        "description": "ecommerce.inventory.migrations.0002_rename_img_url_media_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0001_initial'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='media',\n            old_name='img_url',\n            new_name='image',\n        ),",
+        "detail": "ecommerce.inventory.migrations.0002_rename_img_url_media_image",
         "documentation": {}
     },
     {
@@ -1254,7 +1300,7 @@
         "kind": 5,
         "importPath": "ecommerce.urls",
         "description": "ecommerce.urls",
-        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register(r\"api\", views.AllProductsViewset, basename=\"allproducts\")\nurlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"admin/\", admin.site.urls),\n    path(\"demo/\", include(\"ecommerce.demo.urls\", namespace=\"demo\")),\n    path(\"__debug__/\", include(debug_toolbar.urls)),\n]",
+        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register(r\"api\", views.AllProductsViewset, basename=\"allproducts\")\nrouter.register(\n    r\"product/(?P<slug>[^/.]+)\",\n    views.ProductInventoryViewset,\n    basename=\"product\",\n)\nurlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"admin/\", admin.site.urls),",
         "detail": "ecommerce.urls",
         "documentation": {}
     },
