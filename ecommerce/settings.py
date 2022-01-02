@@ -5,7 +5,7 @@ SECRET_KEY = (
     "django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h"
 )
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -21,20 +21,18 @@ INSTALLED_APPS = [
     "ecommerce.drf",
     # Demo applications
     "ecommerce.demo",
+    "ecommerce.search",
     # External applications
     "mptt",
     "rest_framework",
+    "django_elasticsearch_dsl",
     # Development
-    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    # "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
-    # "django.middleware.cache.FetchFromCacheMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -122,11 +120,9 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 20,
+    "PAGE_SIZE": 10,
 }
+
+ELASTICSEARCH_DSL = {"default": {"hosts": "localhost:9200"}}

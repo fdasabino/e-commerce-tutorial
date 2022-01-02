@@ -73,6 +73,14 @@
         "documentation": {}
     },
     {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -121,6 +129,14 @@
         "documentation": {}
     },
     {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -130,6 +146,14 @@
     },
     {
         "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
         "isExtraImport": true,
@@ -241,7 +265,79 @@
         "documentation": {}
     },
     {
-        "label": "*",
+        "label": "ManyToManyField",
+        "importPath": "django.db.models.fields.related",
+        "description": "django.db.models.fields.related",
+        "isExtraImport": true,
+        "detail": "django.db.models.fields.related",
+        "documentation": {}
+    },
+    {
+        "label": "Brand",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Media",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAttributeValue",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventory",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductType",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "ecommerce.inventory.models",
+        "description": "ecommerce.inventory.models",
+        "isExtraImport": true,
+        "detail": "ecommerce.inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventory",
         "importPath": "ecommerce.inventory.models",
         "description": "ecommerce.inventory.models",
         "isExtraImport": true,
@@ -289,14 +385,6 @@
         "documentation": {}
     },
     {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
         "label": "viewsets",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -313,7 +401,7 @@
         "documentation": {}
     },
     {
-        "label": "AllProducts",
+        "label": "ProductInventorySerializer",
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
         "isExtraImport": true,
@@ -384,6 +472,78 @@
         "description": "mptt.models",
         "isExtraImport": true,
         "detail": "mptt.models",
+        "documentation": {}
+    },
+    {
+        "label": "Document",
+        "importPath": "django_elasticsearch_dsl",
+        "description": "django_elasticsearch_dsl",
+        "isExtraImport": true,
+        "detail": "django_elasticsearch_dsl",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "django_elasticsearch_dsl",
+        "description": "django_elasticsearch_dsl",
+        "isExtraImport": true,
+        "detail": "django_elasticsearch_dsl",
+        "documentation": {}
+    },
+    {
+        "label": "registry",
+        "importPath": "django_elasticsearch_dsl.registries",
+        "description": "django_elasticsearch_dsl.registries",
+        "isExtraImport": true,
+        "detail": "django_elasticsearch_dsl.registries",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventoryDocument",
+        "importPath": "ecommerce.search.documents",
+        "description": "ecommerce.search.documents",
+        "isExtraImport": true,
+        "detail": "ecommerce.search.documents",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "elasticsearch_dsl",
+        "description": "elasticsearch_dsl",
+        "isExtraImport": true,
+        "detail": "elasticsearch_dsl",
+        "documentation": {}
+    },
+    {
+        "label": "LimitOffsetPagination",
+        "importPath": "rest_framework.pagination",
+        "description": "rest_framework.pagination",
+        "isExtraImport": true,
+        "detail": "rest_framework.pagination",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
         "documentation": {}
     },
     {
@@ -461,20 +621,19 @@
         "documentation": {}
     },
     {
-        "label": "debug_toolbar",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "debug_toolbar",
-        "description": "debug_toolbar",
-        "detail": "debug_toolbar",
-        "documentation": {}
-    },
-    {
         "label": "views",
         "importPath": "ecommerce.drf",
         "description": "ecommerce.drf",
         "isExtraImport": true,
         "detail": "ecommerce.drf",
+        "documentation": {}
+    },
+    {
+        "label": "SearchProductInventory",
+        "importPath": "ecommerce.search.views",
+        "description": "ecommerce.search.views",
+        "isExtraImport": true,
+        "detail": "ecommerce.search.views",
         "documentation": {}
     },
     {
@@ -603,20 +762,11 @@
         "documentation": {}
     },
     {
-        "label": "MediaSerializer",
-        "kind": 6,
-        "importPath": "ecommerce.drf.serializer",
-        "description": "ecommerce.drf.serializer",
-        "peekOfCode": "class MediaSerializer(serializers.ModelSerializer):\n    image = serializers.SerializerMethodField()\n    class Meta:\n        model = Media\n        fields = [\"image\", \"alt_text\"]\n        read_only = True\n    def get_image(self, obj):\n        return self.context[\"request\"].build_absolute_uri(obj.image.url)\nclass ProductAttributeValueSerializer(serializers.ModelSerializer):\n    class Meta:",
-        "detail": "ecommerce.drf.serializer",
-        "documentation": {}
-    },
-    {
         "label": "ProductAttributeValueSerializer",
         "kind": 6,
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
-        "peekOfCode": "class ProductAttributeValueSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = ProductAttributeValue\n        exclude = [\"id\"]\n        depth = 2\nclass BrandSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Returns brand name\n    \"\"\"\n    class Meta:",
+        "peekOfCode": "class ProductAttributeValueSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = ProductAttributeValue\n        # fields = \"__all__\"\n        depth = 2\n        exclude = [\"id\"]\nclass BrandSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Brand\n        fields = [\"name\"]",
         "detail": "ecommerce.drf.serializer",
         "documentation": {}
     },
@@ -625,16 +775,43 @@
         "kind": 6,
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
-        "peekOfCode": "class BrandSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Returns brand name\n    \"\"\"\n    class Meta:\n        model = Brand\n        fields = [\"name\"]\nclass AllProducts(serializers.ModelSerializer):\n    \"\"\"\n    All products",
+        "peekOfCode": "class BrandSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Brand\n        fields = [\"name\"]\nclass ProductTypeSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = ProductType\n        fields = [\"name\"]\nclass MediaSerializer(serializers.ModelSerializer):\n    img_url = serializers.SerializerMethodField()",
         "detail": "ecommerce.drf.serializer",
         "documentation": {}
     },
     {
-        "label": "AllProducts",
+        "label": "ProductTypeSerializer",
         "kind": 6,
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
-        "peekOfCode": "class AllProducts(serializers.ModelSerializer):\n    \"\"\"\n    All products\n    \"\"\"\n    class Meta:\n        model = Product\n        fields = \"__all__\"\n        read_only = True\n        editable = False\nclass ProductInventorySerializer(serializers.ModelSerializer):",
+        "peekOfCode": "class ProductTypeSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = ProductType\n        fields = [\"name\"]\nclass MediaSerializer(serializers.ModelSerializer):\n    img_url = serializers.SerializerMethodField()\n    class Meta:\n        model = Media\n        fields = [\"img_url\", \"alt_text\"]\n        read_only = True",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "MediaSerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class MediaSerializer(serializers.ModelSerializer):\n    img_url = serializers.SerializerMethodField()\n    class Meta:\n        model = Media\n        fields = [\"img_url\", \"alt_text\"]\n        read_only = True\n        editable = False\n    def get_img_url(self, obj):\n        return self.context[\"request\"].build_absolute_uri(obj.img_url.url)\nclass CategorySerializer(serializers.ModelSerializer):",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "CategorySerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class CategorySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Category\n        fields = [\"name\"]\nclass ProductSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Product\n        fields = [\"name\"]\n        read_only = True\n        editable = False",
+        "detail": "ecommerce.drf.serializer",
+        "documentation": {}
+    },
+    {
+        "label": "ProductSerializer",
+        "kind": 6,
+        "importPath": "ecommerce.drf.serializer",
+        "description": "ecommerce.drf.serializer",
+        "peekOfCode": "class ProductSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Product\n        fields = [\"name\"]\n        read_only = True\n        editable = False\nclass ProductInventorySerializer(serializers.ModelSerializer):\n    product = ProductSerializer(many=False, read_only=True)\n    class Meta:\n        model = ProductInventory",
         "detail": "ecommerce.drf.serializer",
         "documentation": {}
     },
@@ -643,25 +820,16 @@
         "kind": 6,
         "importPath": "ecommerce.drf.serializer",
         "description": "ecommerce.drf.serializer",
-        "peekOfCode": "class ProductInventorySerializer(serializers.ModelSerializer):\n    \"\"\"\n    Returns a list of items in the inventory\n    \"\"\"\n    brand = BrandSerializer(many=False, read_only=True)\n    attributes = ProductAttributeValueSerializer(\n        source=\"attribute_values\", many=True\n    )\n    image = MediaSerializer(source=\"media_product_inventory\", many=True)\n    class Meta:",
+        "peekOfCode": "class ProductInventorySerializer(serializers.ModelSerializer):\n    product = ProductSerializer(many=False, read_only=True)\n    class Meta:\n        model = ProductInventory\n        fields = [\n            \"id\",\n            \"sku\",\n            \"store_price\",\n            \"is_default\",\n            \"product\",",
         "detail": "ecommerce.drf.serializer",
         "documentation": {}
     },
     {
-        "label": "AllProductsViewset",
+        "label": "ProductByCategory",
         "kind": 6,
         "importPath": "ecommerce.drf.views",
         "description": "ecommerce.drf.views",
-        "peekOfCode": "class AllProductsViewset(\n    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin\n):\n    queryset = Product.objects.all()\n    serializer_class = AllProducts\n    permission_classes = [permissions.IsAuthenticatedOrReadOnly]\n    lookup_field = \"slug\"\n    def retrieve(self, request, slug=None):\n        queryset = Product.objects.filter(category__slug=slug)[:10]\n        serializer = AllProducts(queryset, many=True)",
-        "detail": "ecommerce.drf.views",
-        "documentation": {}
-    },
-    {
-        "label": "ProductInventoryViewset",
-        "kind": 6,
-        "importPath": "ecommerce.drf.views",
-        "description": "ecommerce.drf.views",
-        "peekOfCode": "class ProductInventoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin):\n    queryset = ProductInventory.objects.all()\n    def list(self, request, slug=None):\n        queryset = ProductInventory.objects.filter(\n            product__category__slug=slug,\n        ).filter(is_default=True)[:10]\n        serializer = ProductInventorySerializer(\n            queryset, context={\"request\": request}, many=\"True\"\n        )\n        return Response(serializer.data)",
+        "peekOfCode": "class ProductByCategory(\n    viewsets.GenericViewSet,\n    mixins.ListModelMixin,\n):\n    \"\"\"\n    API endpoint that returns products by category\n    \"\"\"\n    queryset = ProductInventory.objects.all()\n    def list(self, request, slug=None):\n        queryset = ProductInventory.objects.filter(",
         "detail": "ecommerce.drf.views",
         "documentation": {}
     },
@@ -981,6 +1149,33 @@
         "documentation": {}
     },
     {
+        "label": "SearchConfig",
+        "kind": 6,
+        "importPath": "ecommerce.search.apps",
+        "description": "ecommerce.search.apps",
+        "peekOfCode": "class SearchConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"ecommerce.search\"",
+        "detail": "ecommerce.search.apps",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInventoryDocument",
+        "kind": 6,
+        "importPath": "ecommerce.search.documents",
+        "description": "ecommerce.search.documents",
+        "peekOfCode": "class ProductInventoryDocument(Document):\n    product = fields.ObjectField(properties={\"name\": fields.TextField()})\n    class Index:\n        name = \"productinventory\"\n    class Django:\n        model = ProductInventory\n        fields = [\n            \"id\",\n            \"sku\",\n            \"store_price\",",
+        "detail": "ecommerce.search.documents",
+        "documentation": {}
+    },
+    {
+        "label": "SearchProductInventory",
+        "kind": 6,
+        "importPath": "ecommerce.search.views",
+        "description": "ecommerce.search.views",
+        "peekOfCode": "class SearchProductInventory(APIView, LimitOffsetPagination):\n    productinventory_serializer = ProductInventorySerializer\n    search_document = ProductInventoryDocument\n    def get(self, request, query):\n        try:\n            q = Q(\n                \"multi_match\",\n                query=query,\n                fields=[\"product.name\"],\n                fuzziness=\"auto\",",
+        "detail": "ecommerce.search.views",
+        "documentation": {}
+    },
+    {
         "label": "CategoryFactory",
         "kind": 6,
         "importPath": "ecommerce.tests.factories",
@@ -1129,7 +1324,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nSECRET_KEY = (\n    \"django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h\"\n)\nDEBUG = True\nALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nSECRET_KEY = (\n    \"django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h\"\n)\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1138,7 +1333,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "SECRET_KEY = (\n    \"django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h\"\n)\nDEBUG = True\nALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",",
+        "peekOfCode": "SECRET_KEY = (\n    \"django-insecure-=+9h6w#a!mm=%*-c@d29ny0%sq7gnq9$w%95o1y=_ov-h&h$2h\"\n)\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1147,7 +1342,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1156,7 +1351,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"127.0.0.1\"]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # Local applications",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    # Local applications",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1174,7 +1369,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    \"debug_toolbar.middleware.DebugToolbarMiddleware\",\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    # \"django.middleware.cache.UpdateCacheMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    # \"django.middleware.cache.FetchFromCacheMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"ecommerce.urls\"",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1246,7 +1441,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1255,7 +1450,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "USE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",",
+        "peekOfCode": "USE_L10N = True\n# USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.2/howto/static-files/\nSTATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1264,7 +1459,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,",
+        "peekOfCode": "STATIC_URL = \"/static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 10,\n}\nELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1273,16 +1468,7 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nINTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,\n}",
-        "detail": "ecommerce.settings",
-        "documentation": {}
-    },
-    {
-        "label": "INTERNAL_IPS",
-        "kind": 5,
-        "importPath": "ecommerce.settings",
-        "description": "ecommerce.settings",
-        "peekOfCode": "INTERNAL_IPS = [\n    \"127.0.0.1\",\n]\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,\n}",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 10,\n}\nELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1291,7 +1477,16 @@
         "kind": 5,
         "importPath": "ecommerce.settings",
         "description": "ecommerce.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 20,\n}",
+        "peekOfCode": "REST_FRAMEWORK = {\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.LimitOffsetPagination\",\n    \"PAGE_SIZE\": 10,\n}\nELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
+        "detail": "ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ELASTICSEARCH_DSL",
+        "kind": 5,
+        "importPath": "ecommerce.settings",
+        "description": "ecommerce.settings",
+        "peekOfCode": "ELASTICSEARCH_DSL = {\"default\": {\"hosts\": \"localhost:9200\"}}",
         "detail": "ecommerce.settings",
         "documentation": {}
     },
@@ -1300,7 +1495,7 @@
         "kind": 5,
         "importPath": "ecommerce.urls",
         "description": "ecommerce.urls",
-        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register(r\"api\", views.AllProductsViewset, basename=\"allproducts\")\nrouter.register(\n    r\"product/(?P<slug>[^/.]+)\",\n    views.ProductInventoryViewset,\n    basename=\"product\",\n)\nurlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"admin/\", admin.site.urls),",
+        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register(\n    r\"category/(?P<slug>[^/.]+)\",\n    views.ProductByCategory,\n    basename=\"productbycategory\",\n)\n# router.register(r\"item/(?P<id>[^/.]+)\", views.SingleProductViewSet, basename=\"items\")\n# Wire up our API using automatic URL routing.\n# Additionally, we include login URLs for the browsable API.\nurlpatterns = [",
         "detail": "ecommerce.urls",
         "documentation": {}
     },
@@ -1309,7 +1504,7 @@
         "kind": 5,
         "importPath": "ecommerce.urls",
         "description": "ecommerce.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"admin/\", admin.site.urls),\n    path(\"demo/\", include(\"ecommerce.demo.urls\", namespace=\"demo\")),\n    path(\"__debug__/\", include(debug_toolbar.urls)),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"\", include(router.urls)),\n    path(\"search/<str:query>/\", SearchProductInventory.as_view()),\n]",
         "detail": "ecommerce.urls",
         "documentation": {}
     },
